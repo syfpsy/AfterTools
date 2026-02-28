@@ -1,7 +1,8 @@
 /*
-    CameraFocusNull.jsx
+    CameraFocusNull_v02.jsx
     Creates a 3D null named "FOCUS" and links it to the active camera's
     Focus Distance so you can move the null to set the focal point in 3D space.
+    If the comp has no camera, one is created automatically.
 
     Author: Cem / nightowl
     Usage: Run from File > Scripts > Run Script File
@@ -18,11 +19,11 @@
             return;
         }
 
-        // ─── Find Active Camera ───
+        // ─── Find or Create Camera ───
         var cam = comp.activeCamera;
 
         if (!cam) {
-            // Fallback: search for the first camera layer
+            // Search for an existing camera layer
             for (var i = 1; i <= comp.numLayers; i++) {
                 if (comp.layer(i) instanceof CameraLayer) {
                     cam = comp.layer(i);
@@ -32,8 +33,8 @@
         }
 
         if (!cam) {
-            alert("No camera found in the active composition.");
-            return;
+            // No camera exists — create one
+            cam = comp.layers.addCamera("Camera 1", [comp.width / 2, comp.height / 2]);
         }
 
         // ─── Create FOCUS Null ───
