@@ -1,0 +1,39 @@
+{
+  "_comment": "CemToolbox manifest — list every tool you want to appear in the panel.",
+  "version": "1.0.0",
+  "name": "CemToolbox Default Manifest",
+
+  "tools": [
+
+    {
+      "id": "hello_world",
+      "title": "Hello World",
+      "description": "Demo: shows the AE version and project name.",
+      "category": "Utilities",
+      "script": "tools/hello_world.jsx",
+      "entry": null,
+      "needsSelection": false,
+      "supportsCompOnly": false,
+      "destructive": false,
+      "icon": null,
+      "version": "1.0.0",
+      "tags": ["demo", "utility", "example"]
+    },
+
+    {
+      "id": "layer_renamer",
+      "title": "Layer Renamer",
+      "description": "Rename selected layers using a prefix / suffix pattern.",
+      "category": "Layers",
+      "script": "tools/layer_renamer.jsx",
+      "entry": "run",
+      "needsSelection": true,
+      "supportsCompOnly": true,
+      "destructive": false,
+      "icon": null,
+      "version": "1.0.0",
+      "tags": ["layers", "rename", "batch", "naming"]
+    }
+
+  ]
+}
